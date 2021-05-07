@@ -1,0 +1,9 @@
+$maincolor: #242424;
+.admin__admins {
+  .body {
+    height: 200vh;
+    width: 100vw;
+    padding: 30px;
+    background: linear-gradient(355deg, $maincolor, rgb(81, 116, 167));
+  }
+}

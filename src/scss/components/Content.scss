@@ -1,0 +1,238 @@
+$maincolor: rgb(36, 36, 36);
+.content__container {
+  background: linear-gradient(0deg, #71498a, rgb(47, 45, 46));
+  position: absolute;
+  height: auto;
+  width: 100%;
+
+  .body {
+    .news__blocks {
+      padding: 30px;
+      height: 100%;
+      width: 100%;
+      gap: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .news__block {
+        width: 55vw;
+        min-width: 300px;
+
+        background-color: $maincolor;
+        padding: 30px;
+        color: white;
+        -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        img {
+          &.news__img {
+            max-width: 100%;
+            max-height: 50vh;
+            object-fit: cover;
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+            box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+          }
+        }
+        .news__title {
+          font-size: 16pt;
+          font-weight: 700;
+          letter-spacing: 3px;
+          padding: 30px 0px 30px;
+          color: white;
+        }
+        .news__text {
+          color: white;
+          padding: 0px 30px 30px;
+        }
+        .author__and__date {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          img {
+            background-color: $maincolor;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+            box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+          }
+          .author__name {
+            font-weight: 700;
+            letter-spacing: 2px;
+          }
+          .post__date {
+            font-weight: 700;
+            letter-spacing: 2px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+    .title {
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: 7px;
+      padding: 30px;
+      color: white;
+      &.subtitle {
+        font-size: 20pt;
+        padding: 30px 30px 30px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .info__blocks {
+      padding: 30px;
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 30px;
+      .about__block {
+        width: calc(60% - 15px);
+        min-width: 315px;
+        height: 40vh;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: $maincolor;
+        -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        background-image: url(../../source/img/about.jpg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-shadow: 4px 3px 0px #71498a;
+        align-items: center;
+        .title {
+          padding: 0px;
+          width: 100%;
+        }
+        .text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          font-size: 14pt;
+          font-weight: 700;
+          letter-spacing: 3px;
+
+          color: white;
+        }
+      }
+      .more__block {
+        width: calc(40% - 15px);
+        min-width: 315px;
+        height: 40vh;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: $maincolor;
+        -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        background-image: url(../../source/img/more.jpg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        text-shadow: 4px 3px 0px #71498a;
+        .title {
+          padding: 0px;
+          width: 100%;
+        }
+        .text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          font-size: 14pt;
+          font-weight: 700;
+          letter-spacing: 3px;
+          color: rgb(255, 255, 255);
+        }
+      }
+      .contactdetails__block {
+        width: calc(70% - 15px);
+        min-width: 315px;
+        height: 40vh;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: $maincolor;
+        -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        background-image: url(../../source/img/creds.jpg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-shadow: 4px 3px 0px #71498a;
+        align-items: center;
+        .title {
+          padding: 0px;
+          width: 100%;
+        }
+        .text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          font-size: 14pt;
+          font-weight: 700;
+          letter-spacing: 3px;
+
+          color: white;
+        }
+      }
+      .by__block {
+        width: calc(30% - 15px);
+        min-width: 315px;
+        height: 40vh;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: $maincolor;
+        -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
+        background-image: url(../../source/img/by.jpg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-shadow: 4px 3px 0px #71498a;
+        align-items: center;
+        .title {
+          padding: 0px;
+          width: 100%;
+        }
+        .text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          font-size: 18pt;
+          font-weight: 700;
+          letter-spacing: 5px;
+
+          color: white;
+        }
+      }
+    }
+  }
+}

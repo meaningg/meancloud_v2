@@ -1,0 +1,9 @@
+$maincolor: #242424;
+.admin__playlists {
+  .body {
+    height: 300vh;
+    width: 100vw;
+    padding: 30px;
+    background: linear-gradient(0deg, $maincolor, rgb(38, 77, 74));
+  }
+}
