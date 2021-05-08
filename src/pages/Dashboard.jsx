@@ -20,7 +20,7 @@ import { roleContext } from "../components/contexts/Contexts";
 import ScrollToTop from "react-scroll-to-top";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import Testupload from "../components/Testupload";
+
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
   const [menuPos, setMenuPos] = useState("Home");
@@ -35,11 +35,16 @@ const Dashboard = () => {
 
   useEffect(() => {
     const db = firebaseConfig.firestore();
-    return db.collection("blocks").onSnapshot((snapshot) => {
-      const blocksData = [];
-      snapshot.forEach((doc) => blocksData.push({ ...doc.data(), id: doc.id }));
-      setBlocks(blocksData);
-    });
+    return db
+      .collection("blocks")
+      .orderBy("date", "desc")
+      .onSnapshot((snapshot) => {
+        const blocksData = [];
+        snapshot.forEach((doc) =>
+          blocksData.push({ ...doc.data(), id: doc.id })
+        );
+        setBlocks(blocksData);
+      });
   }, []);
 
   if (!currentUser) {
@@ -85,7 +90,7 @@ const Dashboard = () => {
           ) : menuPos === "Other" ? (
             <>
               <MenuBtnFunc />
-              <Testupload />
+              <PageComingSoon />
             </>
           ) : menuPos === "Other1" ? (
             <>
