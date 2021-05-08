@@ -22,20 +22,30 @@ function Content() {
     <div>
       <div className="content__container ">
         <div className="body ">
-          <div className="big__image">
-            <img
-              id="newsImage"
+          <Fade duration={200} when={bigImage}>
+            <div
               onClick={() => {
-                setBigImageSrc("");
+                setBigImage(!bigImage);
+                setTimeout(setBigImageSrc, 200, "");
               }}
-              src={bigImageSrc}
-              alt=""
-            />
-          </div>
+              className={
+                bigImage ? "big__image active noselect" : "big__image noselect"
+              }
+            >
+              <img
+                onClick={() => {
+                  setBigImage(!bigImage);
+                  setTimeout(setBigImageSrc, 200, "");
+                }}
+                src={bigImageSrc}
+                alt=""
+              />
+            </div>
+          </Fade>
           <div className="title noselect">Hi, {currentUser.displayName}</div>
 
           <div className="news__blocks ">
-            {blocks.map((block) => (
+            {blocks.slice(0, 12).map((block) => (
               <div key={block.date} className="news__block">
                 <img
                   className="news__img noselect"

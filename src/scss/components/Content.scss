@@ -9,21 +9,29 @@ $maincolor: rgb(36, 36, 36);
     .big__image {
       position: fixed;
       z-index: 4;
-      max-height: 100%;
-      max-width: 100%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      height: 100vh;
+      width: 100vw;
+
+      top: 0;
+      pointer-events: none;
+      left: 0;
+
       display: flex;
       justify-content: center;
       align-items: center;
+      &.active {
+        pointer-events: auto;
+        background-color: rgba(0, 0, 0, 0.699);
+      }
       img {
         &.disabled {
           display: none;
         }
         object-fit: cover;
-        max-width: 80%;
+        max-width: 95%;
 
+        pointer-events: auto;
+        max-height: 95%;
         border-radius: 10px;
         -webkit-box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
         box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.58);
@@ -43,9 +51,9 @@ $maincolor: rgb(36, 36, 36);
 
       .news__block {
         width: calc(25% - 23px);
-
+        max-width: 500px;
         min-width: 350px;
-        height: 850px;
+        height: 750px;
         background-color: rgba(138, 130, 143, 0.233);
         padding: 30px;
         color: white;

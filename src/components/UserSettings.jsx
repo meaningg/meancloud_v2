@@ -227,7 +227,7 @@ function UserSettings() {
                 placeholder="New email"
               ></input>
               <input
-                placeholder="password"
+                placeholder="Password"
                 type="password"
                 name="password"
                 cols="24"
