@@ -15,14 +15,14 @@ import { roleContext } from "./components/contexts/Contexts";
 function App() {
   return (
     <div>
-      <Redirect push to="/" />
+      <Redirect push to="/redirect" />
       <AuthProvider>
         <Router>
           <Switch>
-            <Route exact path="/" component={RedirectPage} />
+            <Route exact path="/redirect" component={RedirectPage} />
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/main" component={Dashboard} />
+            <Route exact path="/" component={Dashboard} />
           </Switch>
         </Router>
       </AuthProvider>

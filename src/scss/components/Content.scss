@@ -1,4 +1,26 @@
 $maincolor: rgb(36, 36, 36);
+
+@mixin desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin tablets {
+  @media screen and (max-width: 790px) {
+    @content;
+  }
+}
+@mixin phones {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
 .content__container {
   background: linear-gradient(0deg, #71498a, rgb(47, 45, 46));
   position: absolute;
@@ -51,6 +73,10 @@ $maincolor: rgb(36, 36, 36);
 
       .news__block {
         width: calc(25% - 23px);
+        @include tablets {
+          width: 100%;
+        }
+
         max-width: 500px;
         min-width: 350px;
         height: 750px;

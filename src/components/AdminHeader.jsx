@@ -7,17 +7,17 @@ function AdminHeader() {
     <div>
       <div className="admin__header">
         <header>
-          <div className="title">Admin panel</div>
+          <div className="title noselect">Admin panel</div>
         </header>
         <div
           className={
             adminMenuPos === "News"
-              ? "menu__buttons newsbg"
+              ? "menu__buttons noselect newsbg"
               : adminMenuPos === "Playlists"
-              ? "menu__buttons playlistsbg"
+              ? "menu__buttons noselect playlistsbg"
               : adminMenuPos === "Users"
-              ? "menu__buttons adminsbg"
-              : "menu__buttons"
+              ? "menu__buttons noselect adminsbg"
+              : "menu__buttons noselect"
           }
         >
           <button

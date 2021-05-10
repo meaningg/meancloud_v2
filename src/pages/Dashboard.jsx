@@ -79,7 +79,7 @@ const Dashboard = () => {
               <MenuBtnFunc />
               <TopWelcome />
 
-              <Content></Content>
+              <Content />
             </>
           ) : menuPos === "Music" ? (
             <>

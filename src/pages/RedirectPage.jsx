@@ -8,7 +8,7 @@ const RedirectPage = () => {
     <>
       <h1>Redirect Page</h1>
       {currentUser ? (
-        <Redirect to="/main"></Redirect>
+        <Redirect to="/"></Redirect>
       ) : (
         <Redirect to="/login"></Redirect>
       )}
