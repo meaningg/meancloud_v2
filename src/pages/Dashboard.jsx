@@ -20,6 +20,7 @@ import { roleContext } from "../components/contexts/Contexts";
 import ScrollToTop from "react-scroll-to-top";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import Music from "../components/Music";
 
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
@@ -32,6 +33,19 @@ const Dashboard = () => {
   docRef.get().then((doc) => {
     setRole(doc.data().role);
   });
+
+  useEffect(() => {
+    const db = firebaseConfig.firestore();
+    return db.collection("musicEmbed").onSnapshot((snapshot) => {
+      const playListsData = [];
+
+      snapshot.forEach((doc) =>
+        playListsData.push({ ...doc.data(), id: doc.id })
+      );
+      setPlayLists(playListsData);
+    });
+  }, []);
+  const [playLists, setPlayLists] = useState([]);
 
   useEffect(() => {
     const db = firebaseConfig.firestore();
@@ -67,7 +81,7 @@ const Dashboard = () => {
         smooth
         component={<FontAwesomeIcon icon={faChevronUp} />}
       />
-      <roleContext.Provider value={{ role, blocks }}>
+      <roleContext.Provider value={{ role, blocks, playLists }}>
         <MenuPosContext.Provider
           value={{
             menuPos,
@@ -84,8 +98,7 @@ const Dashboard = () => {
           ) : menuPos === "Music" ? (
             <>
               <MenuBtnFunc />
-
-              <PageComingSoon />
+              <Music />
             </>
           ) : menuPos === "Other" ? (
             <>

@@ -19,7 +19,7 @@ function PlaylistsInput({ nameGenre, btnDisabled }) {
         setPlayLists(playListsData);
       });
   }, []);
-  console.log(playLists);
+
   return (
     <div className="genres__container">
       {playLists.map((doc) => (

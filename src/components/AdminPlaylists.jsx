@@ -1,33 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../scss/components/adminPlaylists.scss";
 import firebaseConfig from "./firebase/config";
 import parse from "html-react-parser";
 import ErrorAlert from "./ErrorAlert";
 import SuccessAlert from "./SuccessAlert";
 import PlaylistsInput from "./PlaylistsInput";
-
+import { roleContext } from "./contexts/Contexts";
 function AdminPlaylists() {
   const [genre, setGenre] = useState(null);
   const [playListEmbed, setPlayListEmbed] = useState(null);
-  const [playLists, setPlayLists] = useState([]);
+  const { playLists } = useContext(roleContext);
   const db = firebaseConfig.firestore();
   const [error, setError] = useState("");
   const [isError, setIsError] = useState(false);
   const [successAlert, setSuccessAlert] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [plstEmbed, setPlstEmbed] = useState([]);
-
-  useEffect(() => {
-    const db = firebaseConfig.firestore();
-    return db.collection("musicEmbed").onSnapshot((snapshot) => {
-      const playListsData = [];
-
-      snapshot.forEach((doc) =>
-        playListsData.push({ ...doc.data(), id: doc.id })
-      );
-      setPlayLists(playListsData);
-    });
-  }, []);
 
   const onCreate = (e) => {
     e.preventDefault();
