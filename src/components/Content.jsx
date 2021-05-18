@@ -16,7 +16,6 @@ function Content() {
     var d = new Date(inputFormat);
     return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join("/");
   }
-  // convertDate(blocks.date) - использование конвертора даты;
 
   return (
     <div>
