@@ -52,7 +52,7 @@ const SignUp = () => {
   };
   const { currentUser } = useContext(AuthContext);
   if (currentUser) {
-    return <Redirect to="/main" />;
+    return <Redirect to="/" />;
   }
   return (
     <div className="login__body">

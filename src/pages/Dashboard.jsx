@@ -21,6 +21,7 @@ import ScrollToTop from "react-scroll-to-top";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Music from "../components/Music";
+import Chat from "../components/Chat";
 
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
@@ -103,7 +104,7 @@ const Dashboard = () => {
           ) : menuPos === "Other" ? (
             <>
               <MenuBtnFunc />
-              <PageComingSoon />
+              <Chat />
             </>
           ) : menuPos === "Other1" ? (
             <>
