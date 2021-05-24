@@ -5,6 +5,8 @@ import firebase from "firebase";
 import demoUserLogo from "../source/img/menuBtns/admin.jpg";
 import firebaseConfig from "./firebase/config";
 import { roleContext } from "../components/contexts/Contexts";
+import ErrorAlert from "./ErrorAlert";
+import SuccessAlert from "./SuccessAlert";
 function UserSettings() {
   const { currentUser } = useContext(AuthContext);
   const [name, setName] = useState("");
@@ -15,7 +17,10 @@ function UserSettings() {
   const [oldEmail, setOldEmail] = useState(null);
   const [oldPass, setOldPass] = useState(null);
   const [emailSuccess, setEmailSuccess] = useState("Email");
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorAlert, setErrorAlert] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [successAlert, setSuccessAlert] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
   const db = firebaseConfig.firestore();
   const { role } = useContext(roleContext);
   // test file Upload
@@ -33,6 +38,11 @@ function UserSettings() {
       })
       .then(function (cred) {
         setName();
+        setIsSuccess(true);
+        setSuccessAlert("Updated!");
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 2500);
         return db.collection("users").doc(user.uid).update({
           username: name,
         });
@@ -65,6 +75,11 @@ function UserSettings() {
       .auth()
       .signInWithEmailAndPassword(oldEmail, oldPass)
       .then((user) => {
+        setIsSuccess(true);
+        setSuccessAlert("Updated!");
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 2500);
         firebaseConfig
           .auth()
           .currentUser.updatePassword(password)
@@ -80,6 +95,11 @@ function UserSettings() {
       .auth()
       .signInWithEmailAndPassword(oldEmail, oldPass)
       .then((user) => {
+        setIsSuccess(true);
+        setSuccessAlert("Updated!");
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 2500);
         firebaseConfig
           .auth()
           .currentUser.updateEmail(email)
@@ -109,6 +129,7 @@ function UserSettings() {
         .getDownloadURL()
         .then((url) => {
           e.preventDefault();
+
           setFile(null);
           var user = firebase.auth().currentUser;
 
@@ -117,6 +138,11 @@ function UserSettings() {
               photoURL: url,
             })
             .then(function () {
+              setIsSuccess(true);
+              setSuccessAlert("Updated!");
+              setTimeout(() => {
+                setIsSuccess(false);
+              }, 2500);
               setLogoUrl();
               return db.collection("users").doc(user.uid).update({
                 logoUrl: url,
@@ -131,6 +157,8 @@ function UserSettings() {
   //
   return (
     <div className="user__settings ">
+      <ErrorAlert error={isError}>{errorAlert}</ErrorAlert>
+      <SuccessAlert success={isSuccess}>{successAlert}</SuccessAlert>
       <div className="header noselect">User settings</div>
       <div className="current__settings">
         <div className="profile__title noselect">Profile </div>

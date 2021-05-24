@@ -1,9 +1,62 @@
 $maincolor: #242424;
 .admin__admins {
   .body {
-    height: 200vh;
+    height: 100%;
     width: 100vw;
     padding: 30px;
     background: linear-gradient(355deg, $maincolor, rgb(81, 116, 167));
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .users {
+      height: auto;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .user {
+        justify-content: space-between;
+        display: flex;
+        gap: 30px;
+        color: white;
+        padding: 10px;
+        background-color: $maincolor;
+        width: calc(25% - 8px);
+
+        min-width: 300px;
+        border-radius: 5px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        .email {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        .username {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        button {
+          height: 30px;
+          border: none;
+          border-radius: 3px;
+          background-color: rgb(81, 116, 167);
+          color: white;
+          font-size: 12pt;
+          font-weight: 500;
+          letter-spacing: 4px;
+          transition: 0.2s;
+          &:hover {
+            transform: scale(1.02);
+          }
+          &:active {
+            transform: scale(1);
+          }
+          &.admin {
+            background-color: rgb(53, 75, 109);
+          }
+        }
+      }
+    }
   }
 }

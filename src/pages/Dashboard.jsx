@@ -31,6 +31,8 @@ const Dashboard = () => {
   const [role, setRole] = useState("");
   const [blocks, setBlocks] = useState([]);
   const docRef = db.collection("users").doc(currentUser.uid);
+  const [users, setUsers] = useState([])
+   const [playLists, setPlayLists] = useState([]);
   docRef.get().then((doc) => {
     setRole(doc.data().role);
   });
@@ -46,7 +48,20 @@ const Dashboard = () => {
       setPlayLists(playListsData);
     });
   }, []);
-  const [playLists, setPlayLists] = useState([]);
+ 
+
+  useEffect(() => {
+    const db = firebaseConfig.firestore();
+    return db.collection("users").onSnapshot((snapshot) => {
+      const usersData = [];
+
+      snapshot.forEach((doc) =>
+        usersData.push({ ...doc.data(), id: doc.id })
+      );
+      setUsers(usersData);
+    });
+  }, []);
+  
 
   useEffect(() => {
     const db = firebaseConfig.firestore();
@@ -82,7 +97,7 @@ const Dashboard = () => {
         smooth
         component={<FontAwesomeIcon icon={faChevronUp} />}
       />
-      <roleContext.Provider value={{ role, blocks, playLists }}>
+      <roleContext.Provider value={{ users, role, blocks, playLists }}>
         <MenuPosContext.Provider
           value={{
             menuPos,

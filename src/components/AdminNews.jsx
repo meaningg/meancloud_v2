@@ -128,9 +128,7 @@ function AdminNews() {
               <img
                 className="news__img noselect"
                 // Заготовка для полноэкранного просмотра картинок
-                onClick={(e) => {
-                  console.log(e.target.src);
-                }}
+                onClick={(e) => {}}
                 src={block.img}
                 alt=""
               />
@@ -175,6 +173,13 @@ function AdminNews() {
                           .collection("blocks")
                           .doc(block.id)
                           .set({ ...block, text })
+                          .then((ref) => {
+                            setIsSuccess(true);
+                            setSuccessAlert("Updated!");
+                            setTimeout(() => {
+                              setIsSuccess(false);
+                            }, 2500);
+                          })
                       : console.log("hmmmm");
                   }}
                 >
