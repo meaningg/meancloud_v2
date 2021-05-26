@@ -76,7 +76,7 @@ function MenuBtnFunc() {
               <div className="user__name">{currentUser.displayName}</div>
             </div>
             <div className="menu__list__body">
-              {role === "admin" || "creator" ? (
+              {role === "admin" ? (
                 <button
                   className={
                     menuPos === "Admin" ? "btn__admin active" : "btn__admin"

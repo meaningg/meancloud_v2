@@ -17,7 +17,7 @@ function Chat() {
   return (
     <div className="chatapp">
       <div className="App">
-        <header>
+        <header className="noselect">
           <h1>⚛️🔥💬</h1>
         </header>
 
@@ -111,6 +111,7 @@ function ChatMessage(props) {
     <>
       <div className={`message ${messageClass}`}>
         <img
+          className="noselect"
           src={
             photoURL || "https://api.adorable.io/avatars/23/abott@adorable.png"
           }

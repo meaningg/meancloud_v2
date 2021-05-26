@@ -8,7 +8,7 @@ function Music() {
   return (
     <div className="music__container">
       <div className="music__header">Music</div>
-      <div className="music__welcome">some content will be there</div>
+
       <div className="music__body">
         {" "}
         {playLists.map((ref) => (

@@ -22,6 +22,7 @@ function AdminAdmins() {
                 Role: <h4>{ref.role}</h4>
               </div>
               <button
+                disabled={ref.email === "thomassred@gmail.com" ? true : false}
                 onClick={
                   ref.role === "admin"
                     ? () => {

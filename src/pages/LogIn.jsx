@@ -54,7 +54,7 @@ const LogIn = () => {
               placeholder="Password"
             />
             <p className="animation a5">
-              <Link to="/signup"> or SigUp</Link>
+              <Link to="/signup"> or Sign Up</Link>
             </p>
             <button className=" animation a6" type="submit">
               LOGIN
